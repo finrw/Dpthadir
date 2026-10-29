@@ -4,6 +4,9 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Absensi Kehadiran Pemilihan RW</title>
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#c8102e">
+<link rel="apple-touch-icon" href="icon-192.png">
 <script src="https://unpkg.com/html5-qrcode@2.3.8/html5-qrcode.min.js"></script>
 <style>
 * { box-sizing: border-box; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
@@ -218,6 +221,13 @@ window.onload = function () {
   setInterval(updateDashboard, 15000);
   startCamera();
 };
+</script>
+<script>
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', function () {
+      navigator.serviceWorker.register('service-worker.js').catch(function () {});
+    });
+  }
 </script>
 </body>
 </html>
